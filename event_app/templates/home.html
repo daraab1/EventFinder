@@ -19,7 +19,7 @@
 
       .brand {
         font-weight: 800;
-        font-size: 1.8rem; 
+        font-size: 2.8rem; 
         letter-spacing: .4px;
         color: #1a1a1a;
       }
@@ -29,6 +29,7 @@
         box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
         border-radius: 18px;
         padding: 3rem 2.5rem; 
+        max-width: 960px;
       }
 
       .form-control-lg, .btn-lg {
@@ -46,30 +47,27 @@
   </head>
   <body>
 
-      
-    <nav class="navbar navbar-light bg-white border-bottom">
+    <nav class="navbar navbar-light" style="background-color: #7f9bee;">
       <div class="container">
         <span class="navbar-brand mb-0 h1 brand">EventBuddy Finder</span>
       </div>
     </nav>
 
-    
     <section class="hero">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-9 text-center">
             <h1 class="display-5 fw-bold text-white">Find events near you</h1>
             <p class="lead text-white mt-2">
-              Search by <strong>city or state</strong> and optional keyword like
-              <em>music</em>, <em>sports</em>, or <em>tech</em>.
+              Search by <strong>city or state</strong>, or can add an optional keyword, or can choose a
+              category like <em>Music</em> or <em>Sports</em>.
             </p>
           </div>
         </div>
 
-        
         <div class="row justify-content-center mt-4">
-          <div class="col-12 col-lg-9">
-            <div class="bg-white search-card mx-auto">
+          <div class="col-12 col-lg-9 d-flex justify-content-center">
+            <div class="bg-white search-card mx-auto w-100">
 
               <form action="/events" method="get" class="row g-3 align-items-end">
 
@@ -91,21 +89,63 @@
                     name="keyword"
                     type="text"
                     class="form-control form-control-lg"
-                    placeholder="music, sports, tech…">
+                    placeholder="concert, festival, music...">
                 </div>
 
                 <div class="col-12 col-md-2 d-grid">
                   <button type="submit" class="btn btn-primary btn-lg">Search</button>
                 </div>
 
+                <div class="col-12">
+                  <label class="form-label d-block mb-1">Category</label>
+                  <div class="d-flex flex-wrap gap-3">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="category"
+                        id="cat_all"
+                        value=""
+                        checked>
+                      <label class="form-check-label" for="cat_all">
+                        All
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="category"
+                        id="cat_music"
+                        value="music">
+                      <label class="form-check-label" for="cat_music">
+                        Music
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="category"
+                        id="cat_sports"
+                        value="sports">
+                      <label class="form-check-label" for="cat_sports">
+                        Sports
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
               </form>
 
               <div class="d-flex flex-wrap gap-2 mt-3">
                 <span class="muted">Quick picks:</span>
-                <a class="btn btn-light btn-sm" href="/events?city=New%20York&keyword=music">NYC · music</a>
-                <a class="btn btn-light btn-sm" href="/events?city=Miami&keyword=sports">Miami · sports</a>
-                <a class="btn btn-light btn-sm" href="/events?city=Los%20Angeles&keyword=tech">LA · tech</a>
-                <a class="btn btn-light btn-sm" href="/events?city=Chicago&keyword=">Chicago · all</a>
+                <a class="btn btn-light btn-sm" href="/events?city=New%20York&keyword=&category=music">NYC · music</a>
+                <a class="btn btn-light btn-sm" href="/events?city=Miami&keyword=&category=sports">Miami · sports</a>
+                <a class="btn btn-light btn-sm" href="/events?city=Los%20Angeles&keyword=tech&category=">LA · tech</a>
+                <a class="btn btn-light btn-sm" href="/events?city=Chicago&keyword=&category=">Chicago · all</a>
               </div>
 
             </div>

@@ -19,12 +19,11 @@ def create_app():
 
     db.init_app(app)
 
-    # register models and create tables
+    # here it register the models and create tables
     from . import models  
     with app.app_context():
         db.create_all()
 
-    # routes
     from .routes import bp as main_bp
     app.register_blueprint(main_bp)
 
